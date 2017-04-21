@@ -59,6 +59,7 @@
       </div>
     </div>
   </div>
+
   <script type="text/javascript">
     // Question: What does this code do?
     $("#add-btn").on("click", function(event) {
@@ -69,6 +70,8 @@
         email: $("#email").val().trim(),
         uniqueId: $("#id").val().trim()
       };
+     
+
       // Question: What does this code do??
       $.post("/reservations", newRes)
       .done(function(data) {
@@ -77,5 +80,6 @@
       });
     });
   </script>
+
 </body>
 </html>
