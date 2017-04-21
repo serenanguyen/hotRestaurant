@@ -16,8 +16,8 @@
       <h1>Hot Restaurant</h1>
       <hr>
       <h3>Current Reservations and Waiting List</h3>
-      <a href="/reservations"><button type="button" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-ok"></span> Make Reservation</button>
-      <a href="/"><button type="button" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-home"></span></button>
+      <a href="/reservations"><button type="button" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-ok"></span> Make Reservation</button></a>
+      <a href="/"><button type="button" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-home"></span></button></a>
     </div>
     <div class="col-md-12">
       <div class="panel panel-default">
@@ -32,8 +32,8 @@
         <div class="panel-heading">
           <h3 class="panel-title">Waiting List</h3>
         </div>
-        <div class="panel-body">
-          Panel content
+        <div id="insert2" class="panel-body">
+          
         </div>
       </div>
       <div class="row">
@@ -60,8 +60,26 @@
           }
         }
         else {
-          $("#name").text("The force is not strong with this one. Your character was not found.");
-          $("#stats").hide();
+          
+        }
+      });
+
+       $.get("/api/waitlist", function(data) {
+        console.log(data);
+        if (data) {
+
+          for(i=0;i<data.length;i++){
+            var newDiv = $("<div>");
+            newDiv.addClass("well");
+            newDiv.append("<h2 id='name'>"+ data[i].name + "</h2>");
+            newDiv.append("<h3><strong>Phone Number:</strong> <span id=\"phoneNumber\">" + data[i].phoneNumber + "</span></h3>");
+            newDiv.append("<h3><strong>Email:</strong> <span id=\"email\">" + data[i].email + "</span></h3>");
+            newDiv.append("<h3><strong>Id:</strong> <span id=\"id\">" + data[i].id + "</span></h3>");
+            $("#insert2").append(newDiv);
+          }
+        }
+        else {
+          
         }
       });
       $("#clear").on("click", function(event){
