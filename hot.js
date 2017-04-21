@@ -75,8 +75,9 @@ app.get("/tables",function(req, res){
 });
 
 app.post("/tables", function(req, res){
-  tables = {};
-  waitList = {};
+  tables = [];
+  waitList = [];
+
 })
 
 

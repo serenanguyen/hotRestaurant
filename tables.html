@@ -83,7 +83,10 @@
         }
       });
       $("#clear").on("click", function(event){
-        alert("Clearing tables.");
+        //alert("Clearing tables.");
+        $("#insert").html("");
+        $("#insert2").html("");
+
         $.post("/tables")
         .done(function(data) {
           console.log(data);
