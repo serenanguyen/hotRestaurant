@@ -56,6 +56,21 @@ app.get("/api/waitlist",function(req, res){
 app.get("/reservations",function(req, res){
 	res.sendFile(path.join(__dirname, "reserve.html"))
 });
+app.post("/reservations",function(req, res){
+	//res.sendFile(path.join(__dirname, "reserve.html"))
+
+	var newRes = req.body;
+
+	 if(tables.length >= 5){
+	 	waitList.push(newRes);
+	 }else{
+	 	tables.push(newRes);
+	 }
+
+	
+	//res.json(newRes);
+
+});
 app.get("/tables",function(req, res){
 	res.sendFile(path.join(__dirname, "tables.html"))
 });

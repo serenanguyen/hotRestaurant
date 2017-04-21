@@ -59,27 +59,27 @@
       </div>
     </div>
   </div>
-<script type="text/javascript">
+
+  <script type="text/javascript">
     // Question: What does this code do?
     $("#add-btn").on("click", function(event) {
       event.preventDefault();
-      var newCustomer = {
+      var newRes = {
         name: $("#name").val().trim(),
-        phoneNum: $("#phoneNum").val().trim(),
+        phoneNum: $("#phone").val().trim(),
         email: $("#email").val().trim(),
-        uniqueId: $("#uniqueId").val().trim()
+        uniqueId: $("#id").val().trim()
       };
+     
 
       // Question: What does this code do??
-      $.post("/api/new", newCustomer)
+      $.post("/reservations", newRes)
       .done(function(data) {
         console.log(data);
         alert("Adding customer...");
       });
     });
   </script>
-
-
 
 </body>
 </html>
