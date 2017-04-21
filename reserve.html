@@ -25,7 +25,7 @@
           <h3 class="panel-title"><strong>Table Reservation</strong></h3>
         </div>
         <div class="panel-body">
-          <form role="form">
+          <form role="form" id="form">
 
             <div class="form-group">
               <label for="name">Name</label>
@@ -70,12 +70,14 @@
         email: $("#email").val().trim(),
         id: $("#id").val().trim()
       };
-     
+
       $.post("/reservations", newRes)
       .done(function(data) {
         console.log(data);
         alert("Adding customer...");
+
       });
+      $("#form")[0].reset();
     });
   </script>
 
