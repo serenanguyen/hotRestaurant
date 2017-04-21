@@ -71,8 +71,6 @@
         uniqueId: $("#id").val().trim()
       };
      
-
-      // Question: What does this code do??
       $.post("/reservations", newRes)
       .done(function(data) {
         console.log(data);

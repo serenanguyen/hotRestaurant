@@ -25,7 +25,7 @@
           <h3 class="panel-title">Current Reservations</h3>
         </div>
         <div id="insert" class="panel-body">
-          
+
         </div>
       </div>
       <div class="panel panel-default">
@@ -37,12 +37,14 @@
         </div>
       </div>
       <div class="row">
-        <a href="/api/tables">API Table Link</a> | <a href="/api/waitlist">API Wait List</a>
+        <a id="clear">Clear Table</a> |
+        <a href="/api/tables">API Table Link</a> |
+        <a href="/api/waitlist">API Wait List</a>
       </div>
     </div>
   </div>
    <script type="text/javascript">
-    
+
       $.get("/api/tables", function(data) {
         console.log(data);
         if (data) {
@@ -62,6 +64,14 @@
           $("#stats").hide();
         }
       });
+      $("#clear").on("click", function(event){
+        alert("Clearing tables.");
+        $.post("/tables")
+        .done(function(data) {
+          console.log(data);
+        });
+      });
+
   </script>
 </body>
 </html>

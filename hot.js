@@ -66,14 +66,18 @@ app.post("/reservations",function(req, res){
 	 }else{
 	 	tables.push(newRes);
 	 }
-
-	
 	//res.json(newRes);
 
 });
 app.get("/tables",function(req, res){
 	res.sendFile(path.join(__dirname, "tables.html"))
+
 });
+
+app.post("/tables", function(req, res){
+  tables = {};
+  waitList = {};
+})
 
 
 //stars server
