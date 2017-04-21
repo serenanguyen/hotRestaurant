@@ -21,24 +21,24 @@ app.use(bodyParser.json({
 var tables = [{
 	name: "Yoda",
 	phoneNumber: 4091234567,
-	email: yoda@gmail.com",
+	email: "yoda@gmail.com",
 	id:1
 },{
 	name: "Darth Vader",
 	phoneNumber: 4094201337,
-	email: DV1337@hotmail.com",
+	email: "DV1337@hotmail.com",
 	id:2
 }];
 
 var waitList = [{
 	name: "Akbar",
 	phoneNumber: 4090987654,
-	email: itsatrap@aol.com",
+	email: "itsatrap@aol.com",
 	id:3
 },{
 	name: "Han Solo",
 	phoneNumber: 4092002000,
-	email: HanSolo@hotmail.com",
+	email: "HanSolo@hotmail.com",
 	id:4
 }]
 
@@ -55,6 +55,21 @@ app.get("/api/waitlist",function(req, res){
 });
 app.get("/reservations",function(req, res){
 	res.sendFile(path.join(__dirname, "reserve.html"))
+});
+app.post("/reservations",function(req, res){
+	//res.sendFile(path.join(__dirname, "reserve.html"))
+
+	var newRes = req.body;
+
+	 if(tables.length >= 5){
+	 	waitList.push(newRes);
+	 }else{
+	 	tables.push(newRes);
+	 }
+
+	
+	//res.json(newRes);
+
 });
 app.get("/tables",function(req, res){
 	res.sendFile(path.join(__dirname, "tables.html"))
