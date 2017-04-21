@@ -20,26 +20,26 @@ app.use(bodyParser.json({
 //DATA
 var tables = [{
 	name: "Yoda",
-	phoneNumber: 4091234567,
+	phoneNumber: "4091234567",
 	email: "yoda@gmail.com",
-	id:1
+	id:"1"
 },{
 	name: "Darth Vader",
-	phoneNumber: 4094201337,
+	phoneNumber: "4094201337",
 	email: "DV1337@hotmail.com",
-	id:2
+	id:"2"
 }];
 
 var waitList = [{
 	name: "Akbar",
-	phoneNumber: 4090987654,
+	phoneNumber: "4090987654",
 	email: "itsatrap@aol.com",
-	id:3
+	id:"3"
 },{
 	name: "Han Solo",
-	phoneNumber: 4092002000,
+	phoneNumber: "4092002000",
 	email: "HanSolo@hotmail.com",
-	id:4
+	id:"4"
 }]
 
 //Routes
